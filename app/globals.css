@@ -4,10 +4,10 @@
 .theme-light {
   --surface: #F7F7F5;       /* off-white */
   --fg: #1A1A1A;            /* light black */
-  --accent: #3CB371;        /* green */
-  --accent-muted: #9FD9B6;  /* derived lighter green */
+  --accent: #1B7A4B;        /* dark but readable green */
+  --accent-muted: #6FB892;  /* derived lighter green (used for borders/scrims, not text) */
   --border: #E2E2DD;
-  --sage: #8FA893;
+  --sage: #4E7A5C;          /* was #8FA893 (2.39:1, FAIL) -> 4.59:1 on surface, AA PASS */
 
   --background: var(--surface);
   --foreground: var(--fg);

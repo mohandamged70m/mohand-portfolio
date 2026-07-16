@@ -114,13 +114,13 @@ export default function HeroSection({
     >
       <div className="hero relative z-10 grid w-full max-w-[1080px] grid-cols-1 items-center gap-10 py-4 md:grid-cols-[1.15fr_0.85fr] md:gap-12">
         <div className="flex flex-col items-start">
-          <p ref={introRef} className="intro mb-2 font-caveat text-xl text-sage sm:text-2xl">
+          <p ref={introRef} className="intro mb-2 font-caveat text-2xl text-sage sm:text-3xl">
             {introText}
           </p>
 
           <h1
             ref={nameRef}
-            className="name font-display text-[clamp(2rem,7.5vw,4.5rem)] font-bold leading-[1.02] tracking-[-0.01em] text-fg max-[767px]:[word-break:break-word]"
+            className="name font-display text-[clamp(2rem,7.5vw,4.5rem)] font-black leading-[1.02] tracking-[-0.01em] text-fg max-[767px]:[word-break:break-word]"
           >
             {renderName()}
           </h1>
@@ -128,7 +128,7 @@ export default function HeroSection({
           <div className="tagline-wrap relative inline-block">
             <p
               ref={taglineRef}
-              className="tagline mt-3 font-caveat text-[clamp(1.4rem,5vw,2.1rem)] text-accent"
+              className="tagline mt-3 font-caveat text-[clamp(1.7rem,6vw,2.6rem)] font-bold text-accent"
             >
               {tagline}
             </p>
