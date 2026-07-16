@@ -101,7 +101,7 @@ export function Dock() {
     >
       <nav
         aria-label="Primary"
-        className="flex items-center gap-1 rounded-full border border-accent-muted/40 bg-surface/70 p-2 shadow-[0_8px_30px_rgba(0,0,0,0.18)] backdrop-blur-md sm:gap-2 sm:p-2.5"
+        className="flex max-w-[calc(100vw-2rem)] items-center gap-1 overflow-x-auto rounded-full border border-accent-muted/40 bg-surface/70 p-2 shadow-[0_8px_30px_rgba(0,0,0,0.18)] backdrop-blur-md sm:gap-2 sm:p-2.5"
       >
         <div className="flex items-center gap-1 sm:gap-2">
           {SECTION_ORDER.map((section) => (

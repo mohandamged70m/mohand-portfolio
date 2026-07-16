@@ -73,10 +73,10 @@ export default function LetterReveal({ name, title }: LetterRevealProps) {
 
   return (
     <div ref={sectionRef} className="text-center">
-      <h1 ref={nameRef} className="text-5xl font-bold text-white">
+      <h1 ref={nameRef} className="text-5xl font-bold text-fg">
         {renderLetters(name)}
       </h1>
-      <h2 ref={titleRef} className="text-lg uppercase tracking-widest text-gray-400 mt-3">
+      <h2 ref={titleRef} className="text-lg uppercase tracking-widest text-fg/60 mt-3">
         {renderLetters(title)}
       </h2>
     </div>

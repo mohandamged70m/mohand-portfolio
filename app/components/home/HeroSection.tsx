@@ -113,22 +113,22 @@ export default function HeroSection({
     <section
       ref={sectionRef}
       id="home"
-      className="hero-section relative flex min-h-screen items-center justify-center overflow-hidden bg-surface px-6 py-20 text-fg"
+      className="hero-section relative flex min-h-screen items-center justify-center overflow-hidden bg-surface px-5 py-16 text-fg sm:px-6 sm:py-20"
     >
       <ShaderBackground
         variant={theme}
         className="pointer-events-none absolute inset-0 z-0 h-full w-full"
       />
 
-      <div className="hero relative z-10 grid w-full max-w-[1080px] grid-cols-1 items-center gap-12 md:grid-cols-[1.15fr_0.85fr]">
+      <div className="hero relative z-10 grid w-full max-w-[1080px] grid-cols-1 items-center gap-10 py-4 md:grid-cols-[1.15fr_0.85fr] md:gap-12">
         <div className="flex flex-col items-start">
-          <p ref={introRef} className="intro mb-2 font-caveat text-2xl text-sage">
+          <p ref={introRef} className="intro mb-2 font-caveat text-xl text-sage sm:text-2xl">
             {introText}
           </p>
 
           <h1
             ref={nameRef}
-            className="name whitespace-nowrap font-display text-[clamp(3rem,6.5vw,5.5rem)] font-bold leading-[0.98] tracking-[-0.01em] text-fg/70"
+            className="name font-display text-[clamp(2.25rem,9vw,5.5rem)] font-bold leading-[1.02] tracking-[-0.01em] text-fg max-[767px]:[word-break:break-word]"
           >
             {renderName()}
           </h1>
@@ -136,7 +136,7 @@ export default function HeroSection({
           <div className="tagline-wrap relative inline-block">
             <p
               ref={taglineRef}
-              className="tagline mt-3 font-caveat text-[clamp(1.6rem,3vw,2.1rem)] text-accent"
+              className="tagline mt-3 font-caveat text-[clamp(1.4rem,5vw,2.1rem)] text-accent"
             >
               {tagline}
             </p>
@@ -176,7 +176,7 @@ export default function HeroSection({
 
         <div
           ref={portraitRef}
-          className="portrait relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-2xl border border-accent-muted bg-surface/70"
+          className="portrait relative mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-2xl border border-accent-muted bg-surface/70 sm:max-w-sm md:w-auto"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img

@@ -64,7 +64,7 @@ export function DockItem({
     onPointerDown: handlePress,
     onPointerUp: handleLeave,
     className: [
-      "group relative flex h-12 w-12 items-center justify-center rounded-full",
+      "group relative flex h-11 w-11 items-center justify-center rounded-full sm:h-12 sm:w-12",
       "text-fg/80",
       "transition-colors duration-200",
       "hover:text-fg",
