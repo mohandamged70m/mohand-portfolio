@@ -120,7 +120,7 @@ export default function HeroSection({
 
           <h1
             ref={nameRef}
-            className="name font-display text-[clamp(2.25rem,9vw,5.5rem)] font-bold leading-[1.02] tracking-[-0.01em] text-fg max-[767px]:[word-break:break-word]"
+            className="name font-display text-[clamp(2rem,7.5vw,4.5rem)] font-bold leading-[1.02] tracking-[-0.01em] text-fg max-[767px]:[word-break:break-word]"
           >
             {renderName()}
           </h1>

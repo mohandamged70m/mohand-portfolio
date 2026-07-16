@@ -1,34 +1,25 @@
 import HeroSection from "./components/home/HeroSection";
 import { FeatureCard } from "@/components/ui/grid-feature-cards";
 import { PageBackground } from "@/app/components/PageBackground";
+import { Smartphone } from "lucide-react";
 import {
-  Code2,
-  Atom,
-  Palette,
-  Boxes,
-  Wind,
-  Brain,
-  GitBranch,
-  Server,
-  PenTool,
-  Layers,
-  Zap,
-  Container,
-} from "lucide-react";
+  SiJavascript,
+  SiTypescript,
+  SiNodedotjs,
+  SiReact,
+  SiNextdotjs,
+  SiPostgresql,
+  SiGooglegemini,
+} from "react-icons/si";
 
 const stack = [
-  { title: "TypeScript", icon: Code2, description: "Type-safe development across the stack." },
-  { title: "React", icon: Atom, description: "Component-driven UIs with hooks and suspense." },
-  { title: "Next.js", icon: Layers, description: "App Router, RSC, and edge rendering." },
-  { title: "Tailwind", icon: Wind, description: "Utility-first styling with full control." },
-  { title: "shadcn/ui", icon: Boxes, description: "Accessible, composable UI primitives." },
-  { title: "Framer Motion", icon: Zap, description: "Fluid, gesture-driven animations." },
-  { title: "Figma", icon: PenTool, description: "Design systems and prototyping." },
-  { title: "Node.js", icon: Server, description: "APIs and serverless functions." },
-  { title: "Git", icon: GitBranch, description: "Version control and collaboration." },
-  { title: "Docker", icon: Container, description: "Containerized, reproducible environments." },
-  { title: "AI / LLMs", icon: Brain, description: "Building AI-first product experiences." },
-  { title: "Design Systems", icon: Palette, description: "Scalable, consistent visual language." },
+  { title: "JavaScript / TypeScript", icon: SiTypescript, iconClassName: "size-10", description: "Type-safe language for robust web apps." },
+  { title: "Node.js", icon: SiNodedotjs, iconClassName: "size-10", description: "Server-side runtime for APIs and services." },
+  { title: "React.js", icon: SiReact, iconClassName: "size-10", description: "Component-driven library for UIs." },
+  { title: "React Native", icon: Smartphone, iconClassName: "size-10", description: "Cross-platform native mobile apps." },
+  { title: "Next.js", icon: SiNextdotjs, iconClassName: "size-10", description: "Full-stack React framework with App Router." },
+  { title: "PostgreSQL", icon: SiPostgresql, iconClassName: "size-10", description: "Reliable, scalable relational database." },
+  { title: "AI Google Studio", icon: SiGooglegemini, iconClassName: "size-10", description: "Building AI-first product experiences." },
 ];
 
 export default function Home() {
