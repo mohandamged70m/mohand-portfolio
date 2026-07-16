@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---- Per-theme values (driven by the existing theme toggle: html.theme-light / html.theme-dark) ---- */
+.theme-light {
+  --surface: #F7F7F5;       /* off-white */
+  --fg: #1A1A1A;            /* light black */
+  --accent: #3CB371;        /* green */
+  --accent-muted: #9FD9B6;  /* derived lighter green */
+  --border: #E2E2DD;
+  --sage: #8FA893;
+
+  --background: var(--surface);
+  --foreground: var(--fg);
+}
+
+.theme-dark {
+  --surface: #1A1A1A;       /* light black */
+  --fg: #F5F5F5;            /* off-white */
+  --accent: #6FCF97;        /* light green */
+  --accent-muted: #B7E4C7;  /* derived lighter green */
+  --border: #2E2E2E;
+  --sage: #8FA893;
+
+  --background: var(--surface);
+  --foreground: var(--fg);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-accent: var(--accent);
+  --color-accent-muted: var(--accent-muted);
+  --color-border: var(--border);
+  --color-sage: var(--sage);
+
+  /* Backwards-compatible aliases still referenced by some components */
+  --color-bg-light: var(--surface);
+  --color-bg-dark: var(--surface);
+  --color-text-primary: var(--fg);
+  --color-text-inverse: var(--fg);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-inter: var(--font-inter);
+  --font-caveat: var(--font-caveat);
+  --font-display: var(--font-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility font-caveat {
+  font-family: var(--font-caveat), cursive;
+}
+
+@utility font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+@utility font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
+.letter {
+  display: inline-block;
+  white-space: pre;
+}
+
+html {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: transparent;
+  color: inherit;
 }
