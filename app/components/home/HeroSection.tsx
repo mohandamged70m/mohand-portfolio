@@ -4,8 +4,6 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { useLetterReveal } from "@/app/hooks/animation/useLetterReveal";
 import { useScrollReplay } from "@/app/hooks/animation/useScrollReplay";
-import { ShaderBackground } from "@/components/ui/blue-halftone";
-import { useTheme } from "@/app/hooks/useTheme";
 
 export interface HeroSectionProps {
   name: string;
@@ -31,7 +29,6 @@ export default function HeroSection({
   const underlineRef = useRef<SVGPathElement>(null);
   const badgesRef = useRef<HTMLDivElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
-  const { theme } = useTheme();
 
   const introReveal = useLetterReveal(introRef);
   const nameReveal = useLetterReveal(nameRef);
@@ -113,13 +110,8 @@ export default function HeroSection({
     <section
       ref={sectionRef}
       id="home"
-      className="hero-section relative flex min-h-screen items-center justify-center overflow-hidden bg-surface px-5 py-16 text-fg sm:px-6 sm:py-20"
+      className="hero-section relative flex min-h-screen items-center justify-center px-5 py-16 text-fg sm:px-6 sm:py-20"
     >
-      <ShaderBackground
-        variant={theme}
-        className="pointer-events-none absolute inset-0 z-0 h-full w-full"
-      />
-
       <div className="hero relative z-10 grid w-full max-w-[1080px] grid-cols-1 items-center gap-10 py-4 md:grid-cols-[1.15fr_0.85fr] md:gap-12">
         <div className="flex flex-col items-start">
           <p ref={introRef} className="intro mb-2 font-caveat text-xl text-sage sm:text-2xl">
