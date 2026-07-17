@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef, type ReactNode } from "react";
+import Link from "next/link";
 import { gsap, useGSAP, DURATION, EASE, prefersReducedMotion } from "@/app/lib/gsap";
 
 interface DockItemProps {
   label: string;
   href?: string;
-  onClick?: () => void;
+  onClick?: (e?: React.MouseEvent) => void;
   active?: boolean;
   children: ReactNode;
   isLink?: boolean;
@@ -88,14 +89,14 @@ export function DockItem({
 
   if (isLink && href) {
     return (
-      <a href={href} {...commonProps}>
+      <Link href={href} prefetch={true} onClick={onClick} {...commonProps}>
         {inner}
-      </a>
+      </Link>
     );
   }
 
   return (
-    <button type="button" onClick={onClick} {...commonProps}>
+    <button type="button" onClick={() => onClick?.()} {...commonProps}>
       {inner}
     </button>
   );

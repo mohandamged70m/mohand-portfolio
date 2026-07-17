@@ -9,6 +9,10 @@
   --border: #E2E2DD;
   --sage: #4E7A5C;          /* was #8FA893 (2.39:1, FAIL) -> 4.59:1 on surface, AA PASS */
 
+  /* Stack marquee accent (indigo, per-mode) */
+  --stack-accent: #4F46E5;        /* indigo-600 */
+  --stack-accent-soft: #A5B4FC;   /* indigo-300 */
+
   --background: var(--surface);
   --foreground: var(--fg);
 }
@@ -20,6 +24,10 @@
   --accent-muted: #B7E4C7;  /* derived lighter green */
   --border: #2E2E2E;
   --sage: #8FA893;
+
+  /* Stack marquee accent (violet, per-mode) */
+  --stack-accent: #A78BFA;        /* violet-400 */
+  --stack-accent-soft: #7C6BD9;   /* muted violet */
 
   --background: var(--surface);
   --foreground: var(--fg);
@@ -56,6 +64,65 @@
 
 @utility font-inter {
   font-family: var(--font-inter), sans-serif;
+}
+
+/* ---- Stack marquee ---- */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.marquee-viewport {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+}
+
+.marquee-track--left {
+  animation: marquee-left 34s linear infinite;
+}
+
+.marquee-track--right {
+  animation: marquee-right 40s linear infinite;
+}
+
+.marquee-viewport:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-viewport {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee-track--left,
+  .marquee-track--right {
+    animation: none;
+  }
 }
 
 .letter {

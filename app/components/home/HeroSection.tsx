@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { gsap } from "gsap";
 import { useLetterReveal } from "@/app/hooks/animation/useLetterReveal";
 import { useScrollReplay } from "@/app/hooks/animation/useScrollReplay";
@@ -157,12 +158,12 @@ export default function HeroSection({
             <span className="badge inline-flex items-center rounded-full border border-accent-muted bg-surface/70 px-3.5 py-2 text-sm text-fg/80">
               {location}
             </span>
-            <a
-              href="#contact"
-                className="cta rounded-full bg-accent px-4 py-2 text-sm font-medium text-surface transition-colors hover:bg-accent-muted"
+            <Link
+              href="/contact"
+              className="cta rounded-full bg-accent px-4 py-2 text-sm font-medium text-surface transition-colors hover:bg-accent-muted"
             >
               Book a call
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -1,30 +1,24 @@
-import HeroSection from "./components/home/HeroSection";
-import { FeatureCard } from "@/components/ui/grid-feature-cards";
-import { PageBackground } from "@/app/components/PageBackground";
-import { Smartphone } from "lucide-react";
-import {
-  SiJavascript,
-  SiTypescript,
-  SiNodedotjs,
-  SiReact,
-  SiNextdotjs,
-  SiPostgresql,
-  SiGooglegemini,
-} from "react-icons/si";
+"use client";
 
-const stack = [
-  { title: "JavaScript / TypeScript", icon: SiTypescript, iconClassName: "size-10", description: "Type-safe language for robust web apps." },
-  { title: "Node.js", icon: SiNodedotjs, iconClassName: "size-10", description: "Server-side runtime for APIs and services." },
-  { title: "React.js", icon: SiReact, iconClassName: "size-10", description: "Component-driven library for UIs." },
-  { title: "React Native", icon: Smartphone, iconClassName: "size-10", description: "Cross-platform native mobile apps." },
-  { title: "Next.js", icon: SiNextdotjs, iconClassName: "size-10", description: "Full-stack React framework with App Router." },
-  { title: "PostgreSQL", icon: SiPostgresql, iconClassName: "size-10", description: "Reliable, scalable relational database." },
-  { title: "AI Google Studio", icon: SiGooglegemini, iconClassName: "size-10", description: "Building AI-first product experiences." },
-];
+import { useEffect } from "react";
+import HeroSection from "./components/home/HeroSection";
+import { PageBackground } from "@/app/components/PageBackground";
+import { StackSection } from "@/app/components/sections/StackSection";
+import { ProjectSection } from "@/app/components/sections/ProjectSection";
+import { ContactSection } from "@/app/components/sections/ContactSection";
 
 export default function Home() {
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (el) {
+      requestAnimationFrame(() => el.scrollIntoView());
+    }
+  }, []);
+
   return (
-    <main className="flex flex-1 flex-col">
+    <main className="flex min-h-screen flex-col">
       <PageBackground />
       <HeroSection
         introText="hey, i'm"
@@ -34,50 +28,9 @@ export default function Home() {
         location="Alexandria, EG"
         photoSrc="/portrait.jpeg"
       />
-      <section
-        id="stack"
-        className="relative flex min-h-screen flex-col items-start justify-center px-6 py-16 text-fg"
-      >
-        <div className="relative z-10 flex w-full flex-col items-start">
-        <div className="relative inline-block">
-          <h2 className="font-caveat text-[clamp(2.5rem,7vw,4rem)] font-bold text-accent">my <span className="text-fg">stack</span></h2>
-          <svg
-            className="pointer-events-none absolute -bottom-1.5 left-[-4px] h-4 w-full"
-            viewBox="0 0 300 16"
-            preserveAspectRatio="none"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M4 10 Q 80 2, 150 8 T 296 6"
-              stroke="var(--color-accent)"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-          </svg>
-        </div>
-        <p className="text-muted-foreground mt-3 max-w-2xl text-left text-sm tracking-wide text-balance md:text-base">
-          The tools and technologies I use to build fast, accessible, and AI-first products.
-        </p>
-        <div className="mt-10 grid w-full max-w-5xl grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {stack.map((item, i) => (
-            <FeatureCard key={i} feature={item} />
-          ))}
-        </div>
-        </div>
-      </section>
-      <section
-        id="project"
-        className="flex min-h-screen items-center justify-center px-6 text-fg"
-      >
-        <h2 className="text-3xl font-semibold tracking-tight">Project</h2>
-      </section>
-      <section
-        id="contact"
-        className="flex min-h-screen items-center justify-center px-6 text-fg"
-      >
-        <h2 className="text-3xl font-semibold tracking-tight">Contact</h2>
-      </section>
+      <StackSection />
+      <ProjectSection />
+      <ContactSection />
     </main>
   );
 }
